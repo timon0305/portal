@@ -1,0 +1,73 @@
+<div class=" row">
+	<div class="col-md-7">
+		<h4 class="kt-portlet__head-title">
+			<span>You are <b><i>{{role}}</i></b> of this site.</span>
+		</h4>
+
+	</div>
+	<div class="col-md-5" style="text-align: right;">
+		<button (click)="addProperty()" mat-raised-button matTooltip="Create new customer" color="primary" type="button">
+			<span>New Property</span>
+		</button>
+	</div>
+</div>
+<div class="example-header">
+	<mat-form-field>
+		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+	</mat-form-field>
+</div>
+<div class="example-container mat-elevation-z8">
+	<mat-table [dataSource]="dataSource" matSort>
+		<!-- ID Column -->
+
+		<ng-container matColumnDef="id" class="text-center">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="contract_start">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Contract_Start </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.contract_start}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="pea_file">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Pea_File </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.pea_file}} </mat-cell>
+		</ng-container>
+		<!-- Name Column -->
+		<ng-container matColumnDef="keys">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Keys </mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<span> {{row.keys}} </span>
+			</mat-cell>
+		</ng-container>
+
+
+		<ng-container matColumnDef="action">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<!--<button mat-icon-button color="danger" matTooltip="Show Users" (click)="editCustomer(customer)">-->
+					<!--<mat-icon>visibility</mat-icon>-->
+				<!--</button>-->
+				<button mat-icon-button color="primary" matTooltip="Edit Users" (click)="editProperty(row.original_id)">
+					<mat-icon>create</mat-icon>
+				</button>&nbsp;
+				<button mat-icon-button
+						color="warn"
+						matTooltip="Delete Users"
+						type="button"
+						(click)="delete_Property(row.original_id)" disabled="{{!adminIf}}">
+					<mat-icon>delete</mat-icon>
+				</button>&nbsp;
+
+			</mat-cell>
+		</ng-container>
+
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;">
+		</mat-row>
+	</mat-table>
+	<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

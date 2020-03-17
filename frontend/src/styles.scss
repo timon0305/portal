@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~highlight.js/styles/googlecode.css";
+
+// hide bootstrap dropdown arrow globally
+.dropdown-toggle::after {
+	display: none !important;
+}
+
+.mat-table__wrapper--dashboard .mat-table {
+	min-width: 600px !important;
+	width: 100% !important;
+}
+
+.position-static {
+	position: static;
+}
+//div.overlay-container {
+//	position: fixed !important;
+//	z-index: 10;
+//	top: 10px;
+//	right: 20px;
+//}

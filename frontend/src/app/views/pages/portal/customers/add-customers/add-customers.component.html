@@ -1,0 +1,136 @@
+
+<div class="card m-3">
+	<h5 class="card-header">Customers Register</h5>
+	<div class="card-body">
+		<form [formGroup]="custom_registerform" (ngSubmit)="onSubmit()">
+			<mat-tab-group>
+				<mat-tab label="First">
+					<div class="form-row ">
+						<div class="form-group col-4">
+							<label>Customer_No</label>
+							<input type="text" formControlName="customer_no" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customer_no.errors }" />
+							<div *ngIf="submitted && f.customer_no.errors" class="invalid-feedback">
+								<div *ngIf="f.customer_no.errors.required">Customer_No is required</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Name</label>
+							<input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+							<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+								<div *ngIf="f.name.errors.required">Name is required</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Email</label>
+							<input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+							<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+								<div *ngIf="f.email.errors.required">Email is required</div>
+								<div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+							</div>
+						</div>
+					</div>
+				</mat-tab>
+				<mat-tab label="Second">
+					<div class="form-row">
+						<div class="form-group col-4">
+							<label>Customer_Type</label>
+							<mat-form-field>
+								<select matNativeControl formControlName="customer_type" required [ngClass]="{ 'is-invalid': submitted && f.customer_type.errors }" >
+									<option value="None" >None</option>
+									<option value="Normal" >Normal</option>
+									<option value="VIP" >VIP</option>
+								</select>
+							</mat-form-field>
+							<div *ngIf="submitted && f.customer_type.errors" class="invalid-feedback">
+								<div *ngIf="f.customer_type.errors.required">Customer_Type is required</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Pre_Contract</label>
+							<input  id="photo"  type="file" formControlName="pre_contract" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pre_contract.errors }" (change)="uploadFileToActivity($event)" />
+							<div *ngIf="submitted && f.pre_contract.errors" class="invalid-feedback">
+								<div *ngIf="f.pre_contract.errors.required">Pre_Contract is required</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Pre_Contract_date</label>
+							<br>
+							<mat-form-field>
+								<input formControlName="pre_contract_date" matInput [matDatepicker]="picker" placeholder="Choose a date" [ngClass]="{ 'is-invalid': submitted && f.pre_contract_date.errors }">
+								<mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+							</mat-form-field>
+							<div *ngIf="submitted && f.pre_contract_date.errors" class="invalid-feedback">
+								<div *ngIf="f.pre_contract_date.errors.required">Pre_Contract_Date is required</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-4">
+							<label>Purchase_Contract</label>
+							<input type="text" formControlName="purchase_contract" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.purchase_contract.errors }" />
+							<div *ngIf="submitted && f.purchase_contract.errors" class="invalid-feedback">
+								<div *ngIf="f.purchase_contract.errors.required">Purchase_Contract is required</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Password</label>
+							<input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+							<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+								<div *ngIf="f.password.errors.required">Password is required</div>
+								<div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+							</div>
+						</div>
+						<div class="form-group col-4">
+							<label>Confirm Password</label>
+							<input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+							<div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+								<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+								<div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+							</div>
+						</div>
+					</div>
+				</mat-tab>
+				<mat-tab label="Third">
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label>Pre_Contract_Legal</label>
+							<input  type="file" formControlName="pre_contract_legal" class="form-control" [ngClass]="{ 'is-invalid': submitted }" (change)="uploadFileLegalActivity($event)" />
+							<div *ngIf="submitted " class="invalid-feedback">
+								<div *ngIf="">Pre_Contract_Legal is required</div>
+							</div>
+						</div>
+						<div class="form-group col-6">
+							<label>Pre_Contract_date_Legal</label>
+							<br>
+							<mat-form-field>
+								<input formControlName="pre_contract_date_legal" matInput [matDatepicker]="picker1" placeholder="Choose a date" [ngClass]="{ 'is-invalid': submitted  }">
+								<mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+								<mat-datepicker #picker1></mat-datepicker>
+							</mat-form-field>
+							<div *ngIf="submitted " class="invalid-feedback">
+								<div *ngIf="">Pre_Contract_Date_Legal is required</div>
+							</div>
+						</div>
+					</div>
+				</mat-tab>
+			</mat-tab-group>
+			<div class="form-row">
+				<div class="col-8">
+					<div class="form-group form-check">
+						<input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+						<label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+						<div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+					</div>
+				</div>
+				<div class="col-4">
+
+					<div class="text-center">
+						<button class="btn btn-primary mr-1" type="submit">Register</button>
+						<button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

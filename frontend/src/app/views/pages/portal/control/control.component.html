@@ -1,0 +1,78 @@
+<div class=" row">
+	<div class="col-md-7">
+		<h4 class="kt-portlet__head-title">
+			<span>You are <b><i>{{role}}</i></b> of this site.</span>
+		</h4>
+
+	</div>
+	<div class="col-md-5" style="text-align: right;">
+		<button (click)="addUsers()" mat-raised-button matTooltip="Create new customer" color="primary" type="button"  disabled="{{!adminIf}}">
+			<span>New Users</span>
+		</button>
+	</div>
+</div>
+<div class="example-header">
+	<mat-form-field>
+		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+	</mat-form-field>
+</div>
+<div class="example-container mat-elevation-z8">
+	<mat-table [dataSource]="dataSource" matSort>
+		<!-- ID Column -->
+		<ng-container matColumnDef="id" class="text-center">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="name" class="text-center">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="email">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="role">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<span class="kt-badge kt-badge--inline kt-badge--pill kt-badge--{{ getItemCssClassByStatus(row.title) }} kt-badge--wide">{{row.title}}</span>
+			</mat-cell>
+		</ng-container>
+
+
+		<ng-container matColumnDef="updated_at">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Updated_At </mat-header-cell>
+			<mat-cell *matCellDef="let row"> <mat-icon>update</mat-icon>{{row.updated_at}} </mat-cell>
+		</ng-container>
+
+
+		<ng-container matColumnDef="action">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<!--<button mat-icon-button color="danger" matTooltip="Show Users" >-->
+					<!--<mat-icon>visibility</mat-icon>-->
+				<!--</button>-->
+				<button mat-icon-button color="primary" matTooltip="Edit Users" disabled="{{!adminIf}}" (click)="editUsers(row.id)">
+					<mat-icon>create</mat-icon>
+				</button>&nbsp;
+				<button id="{{role}}"
+						mat-icon-button
+						color="warn"
+						matTooltip="Delete Users"
+						type="button"
+						(click)="deleteUsers(row.id)" disabled="{{!adminIf}}">
+					<mat-icon>delete</mat-icon>
+				</button>&nbsp;
+
+			</mat-cell>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;">
+		</mat-row>
+	</mat-table>
+	<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

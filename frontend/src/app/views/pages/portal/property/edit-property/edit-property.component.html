@@ -1,0 +1,72 @@
+<div class="card m-3">
+	<h5 class="card-header">Customer Property</h5>
+	<div class="card-body">
+		<form [formGroup]="edit_Property" (ngSubmit)="onSubmit(fromPage.original_id)">
+			<div class="form-row">
+				<div class="form-group col-12">
+					<label>*Owner:</label><br>
+					<mat-form-field>
+						<mat-select formControlName="name"  multiple [(value)]="selected">
+							<mat-option *ngFor="let topping of toppingList" [value]="topping['id']" aria-selected="true">{{topping['name']}}</mat-option>
+						</mat-select>
+					</mat-form-field>
+					<!--<input type="text" formControlName="owner" class="form-control" " />-->
+					<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+						<div *ngIf="f.name.errors.required">Owner is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>*Contract_Start:</label>
+				<br>
+				<mat-form-field style="display: block;">
+					<input formControlName="contract_start" matInput [matDatepicker]="picker" placeholder="Choose a date" [ngClass]="{ 'is-invalid': submitted && f.contract_start.errors }">
+					<mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+				<div *ngIf="submitted && f.contract_start.errors" class="invalid-feedback">
+					<div *ngIf="f.contract_start.errors.required">Contract_Start is required</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label>Pea_File:</label>
+					<div *ngIf="original_filename">
+						<label >Current File:      <span>{{original_filename}}</span></label>
+
+					</div>
+					<p>If you want to update current file, please select other file!</p>
+					<input type="file" formControlName="pea_file" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pea_file.errors }" (change)="uploadFileToActivity($event)"/>
+					<div *ngIf="submitted && f.pea_file.errors" class="invalid-feedback">
+						<div *ngIf="f.pea_file.errors.required">Password is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>*Keys:</label><br>
+				<select formControlName="keys" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.keys.errors }">
+
+					<option value="1">qwer</option>
+					<option value="2">2qwer</option>
+					<option value="3">3qewr</option>
+					<option value="4">4qwer</option>
+					<option value="5">5qwer</option>
+					<option value="6">qwerwqe6</option>
+				</select>
+				<div *ngIf="submitted && f.keys.errors" class="invalid-feedback">
+					<div *ngIf="f.keys.errors.required">Keys is required</div>
+				</div>
+			</div>
+
+			<div class="form-group form-check">
+				<input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+				<label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+				<div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+			</div>
+			<div class="text-center">
+				<button class="btn btn-primary mr-1">Register</button>
+				<button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+			</div>
+		</form>
+	</div>
+</div>

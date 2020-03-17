@@ -1,0 +1,228 @@
+<mat-tab-group mat-align-tabs="center">
+	<mat-tab label="First">
+		<div *ngIf="property.length && property[0]; else property_null;">
+			<div class="scrollbar square scrollbar-lady-lips thin">
+				<div class="force-overflow">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 mb-12">
+							<div class="example-1 scrollbar-ripe-malinka list_style" >
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Contract Date:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[0]['contract_date']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Pea File:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[0]['pea_file']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Keys:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[0]['keys']}}</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<ng-template #property_null>
+			<h1>Property Is Not Exist</h1>
+		</ng-template>
+
+	</mat-tab>
+	<mat-tab label="Second">
+		<div *ngIf="property.length && property[1]; else property_null;">
+			<div class="scrollbar square scrollbar-lady-lips thin">
+				<div class="force-overflow">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 mb-12">
+							<div class="example-1 scrollbar-ripe-malinka list_style" >
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Contract Date:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[1]['contract_date']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Pea File:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[1]['pea_file']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Keys:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[1]['keys']}}</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<ng-template #property_null>
+			<h1>Property Is Not Exist</h1>
+		</ng-template>
+	</mat-tab>
+	<mat-tab label="Third">
+		<div *ngIf="property.length && property[2]; else property_null;">
+			<div class="scrollbar square scrollbar-lady-lips thin">
+				<div class="force-overflow">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 mb-12">
+							<div class="example-1 scrollbar-ripe-malinka list_style" >
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Contract Date:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[2]['contract_date']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Pea File:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[2]['pea_file']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Keys:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[2]['keys']}}</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<ng-template #property_null>
+			<h1>Property Is Not Exist</h1>
+		</ng-template>
+	</mat-tab>
+	<mat-tab label="Forth">
+		<div *ngIf="property.length && property[3]; else property_null;">
+			<div class="scrollbar square scrollbar-lady-lips thin">
+				<div class="force-overflow">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 mb-12">
+							<div class="example-1 scrollbar-ripe-malinka list_style" >
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Contract Date:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[3]['contract_date']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Pea File:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[3]['pea_file']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Keys:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[3]['keys']}}</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<ng-template #property_null>
+			<h1>Property Is Not Exist</h1>
+		</ng-template>
+	</mat-tab>
+	<mat-tab label="Fifth">
+		<div *ngIf="property.length && property[4]; else property_null;">
+			<div class="scrollbar square scrollbar-lady-lips thin">
+				<div class="force-overflow">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 mb-12">
+							<div class="example-1 scrollbar-ripe-malinka list_style" >
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Contract Date:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[4]['contract_date']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Pea File:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[4]['pea_file']}}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<h3>Keys:</h3>
+									</div>
+									<div class="col-md-5">
+										<h3>{{property[4]['keys']}}</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<ng-template #property_null>
+			<h1>Property Is Not Exist</h1>
+		</ng-template>
+	</mat-tab>
+</mat-tab-group>
