@@ -48,7 +48,7 @@
         "highlight.js": "^9.17.1",
         "lodash": "^4.17.11",
         "material-design-icons": "^3.0.1",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "ng-inline-svg": "^9.2.2",
         "ng2-bootstrap": "^1.6.3",
         "ng2-search-filter": "latest",
